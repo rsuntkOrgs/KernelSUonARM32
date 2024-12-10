@@ -861,6 +861,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "78b3ae25bc7c8c38cec158d1f2757ee79e9b3740fbc7ccf0e59e4b08d793fa89"
 
 [[package]]
+name = "linux-raw-sys"
+version = "0.6.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2a385b1be4e5c3e362ad2ffa73c392e53f031eaa5b7d648e64cd87f27f6063d7"
+
+[[package]]
 name = "lockfree-object-pool"
 version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -875,10 +881,11 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 [[package]]
 name = "loopdev"
 version = "0.5.0"
-source = "git+https://github.com/Kernel-SU/loopdev#7a921f8d966477a645b1188732fac486c71a68ef"
+source = "git+https://gitlab.com/rsuntk/loopdev.git#193bf73326c14bcf07a7673391dd3b820c332ae7"
 dependencies = [
  "errno 0.2.8",
  "libc",
+ "rustix 0.38.35",
 ]
 
 [[package]]
@@ -1183,9 +1190,23 @@ dependencies = [
  "errno 0.3.10",
  "itoa",
  "libc",
- "linux-raw-sys",
+ "linux-raw-sys 0.4.14",
  "once_cell",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "rustix"
+version = "0.38.35"
+source = "git+https://github.com/bytecodealliance/rustix.git?branch=main#6a6f7a8d84e4d8a362b4f7e31f560186526e9026"
+dependencies = [
+ "bitflags 2.6.0",
+ "errno 0.3.10",
+ "itoa",
+ "libc",
+ "linux-raw-sys 0.6.5",
+ "once_cell",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -1197,7 +1218,7 @@ dependencies = [
  "bitflags 2.6.0",
  "errno 0.3.10",
  "libc",
- "linux-raw-sys",
+ "linux-raw-sys 0.4.14",
  "windows-sys 0.59.0",
 ]
 
