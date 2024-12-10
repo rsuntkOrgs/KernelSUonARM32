@@ -39,7 +39,7 @@ perform_cleanup() {
 # Sets up or update KernelSUonARM32 environment
 setup_kernelsu() {
     echo "[+] Setting up KernelSUonARM32..."
-    test -d "$GKI_ROOT/KernelSUonARM32" || git clone https://github.com/rsuntkOrgs/KernelSUonARM32onARM32.git && echo "[+] Repository cloned."
+    test -d "$GKI_ROOT/KernelSUonARM32" || git clone https://github.com/rsuntkOrgs/KernelSUonARM32.git && echo "[+] Repository cloned."
     cd "$GKI_ROOT/KernelSUonARM32"
     git stash && echo "[-] Stashed current changes."
     if [ "$(git status | grep -Po 'v\d+(\.\d+)*' | head -n1)" ]; then
