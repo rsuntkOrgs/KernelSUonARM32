@@ -15,7 +15,6 @@
 
 #include "objsec.h"
 #include "allowlist.h"
-#include "arch.h"
 #include "klog.h" // IWYU pragma: keep
 #include "ksud.h"
 #include "kernel_compat.h"
