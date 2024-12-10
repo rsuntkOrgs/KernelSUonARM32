@@ -38,19 +38,6 @@ enum Commands {
     /// Trigger `boot-complete` event
     BootCompleted,
 
-    /// Install KernelSU userspace component to system
-    Install {
-        #[arg(long, default_value = None)]
-        magiskboot: Option<PathBuf>,
-    },
-
-    /// Uninstall KernelSU modules and itself(LKM Only)
-    Uninstall {
-        /// magiskboot path, if not specified, will search from $PATH
-        #[arg(long, default_value = None)]
-        magiskboot: Option<PathBuf>,
-    },
-
     /// SELinux policy Patch tool
     Sepolicy {
         #[command(subcommand)]

@@ -6,16 +6,13 @@ use std::{
         Write,
     },
     path::Path,
-    process::Command,
 };
 
-use crate::{assets, defs, ksucalls, module, restorecon};
+use crate::ksucalls;
 #[allow(unused_imports)]
 use std::fs::{set_permissions, Permissions};
 #[cfg(unix)]
 use std::os::unix::prelude::PermissionsExt;
-
-use std::path::PathBuf;
 
 #[cfg(any(target_os = "linux", target_os = "android"))]
 use rustix::{
