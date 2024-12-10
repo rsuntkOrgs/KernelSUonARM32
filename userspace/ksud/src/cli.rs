@@ -1,6 +1,6 @@
 use anyhow::{Ok, Result};
 use clap::Parser;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 
 #[cfg(target_os = "android")]
 use android_logger::Config;

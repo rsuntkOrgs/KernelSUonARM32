@@ -409,10 +409,6 @@ pub fn disable_all_modules() -> Result<()> {
     mark_all_modules(defs::DISABLE_FILE_NAME)
 }
 
-pub fn uninstall_all_modules() -> Result<()> {
-    mark_all_modules(defs::REMOVE_FILE_NAME)
-}
-
 fn mark_all_modules(flag_file: &str) -> Result<()> {
     let dir = std::fs::read_dir(MODULE_DIR)?;
     for entry in dir.flatten() {
