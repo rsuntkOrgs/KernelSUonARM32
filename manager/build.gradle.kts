@@ -80,7 +80,7 @@ subprojects {
                     versionName = managerVersionName
                 }
                 ndk {
-                    abiFilters += listOf("arm64-v8a", "x86_64", "riscv64")
+                    abiFilters += listOf("armeabi-v7a")
                 }
             }
 
