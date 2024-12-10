@@ -42,6 +42,7 @@ sha1 = "0.10"
 tempdir = "0.3"
 chrono = "0.4"
 regex-lite = "0.1"
+remove_dir_all = "1.0"
 
 [target.'cfg(any(target_os = "android", target_os = "linux"))'.dependencies]
 rustix = { git = "https://github.com/Kernel-SU/rustix.git", branch = "main", features = [
