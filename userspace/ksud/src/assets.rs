@@ -1,7 +1,6 @@
 use anyhow::Result;
 use const_format::concatcp;
 use rust_embed::RustEmbed;
-use std::path::Path;
 
 use crate::{defs::BINARY_DIR, utils};
 
@@ -14,10 +13,6 @@ struct Asset;
 
 pub fn ensure_binaries(ignore_if_exist: bool) -> Result<()> {
     for file in Asset::iter() {
-        if file == "ksuinit" || file.ends_with(".ko") {
-            // don't extract ksuinit and kernel modules
-            continue;
-        }
         let asset = Asset::get(&file).ok_or(anyhow::anyhow!("asset not found: {}", file))?;
         utils::ensure_binary(format!("{BINARY_DIR}{file}"), &asset.data, ignore_if_exist)?
     }
