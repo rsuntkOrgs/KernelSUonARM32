@@ -1,4 +1,4 @@
-# KernelSU
+# KernelSU (on ARM32)
 
 <img src="https://kernelsu.org/logo.png" style="width: 96px;" alt="logo">
 
@@ -23,11 +23,9 @@ curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.s
 
 ## Compatibility State
 
-KernelSU officially supports Android GKI 2.0 devices (kernel 5.10+). Older kernels (4.14+) are also compatible, but the kernel will have to be built manually.
+Older kernels (4.14+) are also compatible, but the kernel will have to be built manually.
 
 With this, WSA, ChromeOS, and container-based Android are all supported.
-
-Currently, only `arm64-v8a` and `x86_64` are supported.
 
 ## Usage
 
