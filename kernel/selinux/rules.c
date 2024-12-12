@@ -130,9 +130,30 @@ void apply_kernelsu_rules()
 	// Allow all binder transactions
 	ksu_allow(db, ALL, KERNEL_SU_DOMAIN, "binder", ALL);
 
-    // Allow system server kill su process
-    ksu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "getpgid");
-    ksu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "sigkill");
+	// Allow system server kill su process
+	ksu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "getpgid");
+	ksu_allow(db, "system_server", KERNEL_SU_DOMAIN, "process", "sigkill");
+	
+	// TODO: Workaround for ZygiskonKSU
+	ksu_allow(db, ALL, "tmpfs", ALL, ALL);
+	ksu_allow(db, "zygote", "appdomain_tmpfs", "dir", ALL);
+	ksu_allow(db, "zygote", "appdomain_tmpfs", "file", ALL);
+	ksu_typeattribute(db, "magisk_file", "file_type");
+	ksu_allow(db, ALL, "magisk_file", "file", ALL);
+	ksu_allow(db, ALL, "magisk_file", "dir", ALL);
+	ksu_allow(db, ALL, "magisk_file", "fifo_file", ALL);
+	ksu_allow(db, ALL, "magisk_file", "chr_file", ALL);
+	ksu_allow(db, ALL, "magisk_file", "lnk_file", ALL);
+	ksu_allow(db, ALL, "magisk_file", "sock_file", ALL);
+	ksu_allow(db, "system_server", "system_server", "process", "execmem");
+	ksu_allow(db, "zygote", "adb_data_file", "dir", "search");
+	ksu_allow(db, "zygote", "mnt_vendor_file", "dir", "search");
+	ksu_allow(db, "zygote", "system_file", "dir", "mounton");
+	ksu_allow(db, "zygote", "labeledfs", "filesystem", "mount");
+	ksu_allow(db, "zygote", "fs_type", "dir", "search");
+	
+	// TODO: Workaround for PIF
+	ksu_allow(db, "gmscore_app", "gmscore_app", "process", "execmem");
 
 	rcu_read_unlock();
 }
