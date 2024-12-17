@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Block
 import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Warning
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -251,7 +252,7 @@ private fun StatusCard(
                     }
 
                     val workingMode = when (lkmMode) {
-                        null -> ""
+                        null -> " <32>"
                         true -> " <LKM>"
                         else -> " <GKI>"
                     }
@@ -380,10 +381,11 @@ fun UnofficialCard() {
                 uriHandler.openUri("https://github.com/rsuntk/KernelSU")
             }
             .padding(24.dp), verticalAlignment = Alignment.CenterVertically) {
-            Column {
+            Icon(Icons.Outlined.CheckCircle, stringResource(R.string.home_unofficial_title))
+            Column(Modifier.padding(start = 20.dp)) {
                 Text(
                     text = stringResource(R.string.home_unofficial_title),
-                    style = MaterialTheme.typography.titleSmall
+                    style = MaterialTheme.typography.titleMedium
                 )
                 Spacer(Modifier.height(4.dp))
                 Text(
@@ -438,7 +440,7 @@ private fun InfoCard() {
             @Composable
             fun InfoCardItem(label: String, content: String) {
                 contents.appendLine(label).appendLine(content).appendLine()
-                Text(text = label, style = MaterialTheme.typography.bodyLarge)
+                Text(text = label, style = MaterialTheme.typography.titleMedium)
                 Text(text = content, style = MaterialTheme.typography.bodyMedium)
             }
 
