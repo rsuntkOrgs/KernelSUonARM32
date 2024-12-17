@@ -381,7 +381,7 @@ fun UnofficialCard() {
                 uriHandler.openUri("https://github.com/rsuntk/KernelSU")
             }
             .padding(24.dp), verticalAlignment = Alignment.CenterVertically) {
-            Icon(Icons.Outlined.CheckCircle, stringResource(R.string.home_unofficial_title))
+            Icon(Icons.Outlined.Info, stringResource(R.string.home_unofficial_title))
             Column(Modifier.padding(start = 20.dp)) {
                 Text(
                     text = stringResource(R.string.home_unofficial_title),
